@@ -1,4 +1,7 @@
+
+	var scanmode="collection" //"collection" or "validation"
 $(function() {
+	
     var resultCollector = Quagga.ResultCollector.create({
         capture: true,
         capacity: 20,
@@ -29,7 +32,7 @@ $(function() {
                 if (err) {
                     return self.handleError(err);
                 }
-                //Quagga.registerResultCollector(resultCollector);
+                Quagga.registerResultCollector(resultCollector);
                 App.attachListeners();
                 App.checkCapabilities();
                 Quagga.start();
@@ -245,7 +248,7 @@ $(function() {
             frequency: 10,
             decoder: {
                 readers : [{
-                    format: "code_128_reader",
+                    format: "upc_a",
                     config: {}
                 }]
             },
